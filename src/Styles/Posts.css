@@ -1,0 +1,68 @@
+* {
+    box-sizing: border-box;
+}
+
+/* Set a background color */
+body {
+    /* background-color: #474e5d; */
+    font-family: Helvetica, sans-serif;
+}
+
+.timeline {
+    position: relative;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* The actual timeline (the vertical ruler) */
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 6px;
+    background-color: #bbb; 
+    top: 50px;
+    bottom: 0;
+    left: 0;
+    margin-left: -3px;
+  }
+
+/* Container around content */
+.container {
+    padding: 10px 40px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+}
+
+/* The circles on the timeline */
+.content::after {
+    z-index: 1;
+    content: " ";
+    position: absolute;
+    left: 0;
+    top: 50%;
+    margin-left: -4px;
+    margin-top: -4px;
+    width: 8px;
+    height: 8px;
+    background:#474e5d;
+    border-radius: 50%;
+}
+
+.left {
+    left: 0;
+}
+
+/* Add arrows to the left container (pointing right) */
+.left::before {
+    content: " ";
+    height: 0;
+    position: absolute;
+    top: 22px;
+    width: 0;
+    z-index: 1;
+    right: 30px;
+    border: medium solid white;
+    border-width: 10px 0 10px 10px;
+    border-color: transparent transparent transparent white;
+  }
