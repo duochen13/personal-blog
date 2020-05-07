@@ -39,6 +39,7 @@ class App extends Component {
   }
 
   render() {
+    console.log("data.json: ", this.state.data["posts"]);
     return (
       <BrowserRouter>
           <Header />
@@ -46,8 +47,9 @@ class App extends Component {
         <Switch>
             <Route exact path="/" component={Home}/>
             <Route path="/about" component={About}/>
-            <Route path="/projects" component={Projects} />
-            <Route path="/posts" component={Posts} />
+            <Route path="/projects" component={Projects}/>
+            <Route path="/posts" component={() => 
+                <Posts data={this.state.data["posts"]} />}/>
 
         </Switch>
       </BrowserRouter>
