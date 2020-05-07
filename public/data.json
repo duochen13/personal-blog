@@ -1,5 +1,17 @@
 {
     "main": {
         "name": "Duo Chen"
-    }
+    },
+    "posts": [
+        {
+            "id": 0,
+            "title": "1st Posts",
+            "content": "This is a brief content"
+        },
+        {
+            "id":1,
+            "title": "2nd Posts",
+            "content": "Music sentimental analysis (ATT, GOT)"
+        }
+    ]
 }
