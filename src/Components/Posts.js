@@ -9,29 +9,26 @@ class Posts extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            data: this.props.data
+            data: []
         }
     }
     componentDidMount() {
-        console.log("post_data: ", this.state.data)
+        this.setState({
+            data: this.props.data
+        })
+        console.log("componenetDidMount props data: ", this.props.data)
     }
     render() {
-        console.log("POSTDATA!: ", this.props.data);
-        const { data } = this.state;
+
         console.log("STATEDATA!: ", this.state.data);
-        let posts = data.map((post) => {
-            return (
-              // <div key={i} class="content">
-                   <h2>{post.title}</h2>
-              //  </div>
-            )
-        });
-        console.log("STATEDATA:", this.state.data)
+       
+        let posts = this.state.data.map((item, index) => {
+            return <h1>{item.Title}</h1>
+        })
+
         return (
             <div>
                 <div class="timeline">
-
-                    {posts}
                     //<div class="container left">
                     //   <div class="content">
                     //        <h2>2017</h2>
