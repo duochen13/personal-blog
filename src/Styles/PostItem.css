@@ -1,0 +1,31 @@
+.postitem {
+    margin-left: 360px;
+    padding: 30px 80px 0px 40px;
+}
+
+.postitem h1 {
+    font-size: 45px;
+}
+
+.postitem h3 {
+    font-size: 35px;
+}
+
+.postitem hr {
+    opacity: 0.3;
+}
+
+.postitem p {
+    font-size: 20px;
+}
+
+.postitem .command {
+    background-color: #333;
+    border-radius: 5px;
+}
+
+.postitem .command p {
+    font-size: 20px;
+    padding: 20px;
+    color: white;
+}

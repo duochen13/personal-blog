@@ -8,18 +8,20 @@ import Header from './Components/Header';
 import About from './Components/About';
 import Home from './Components/Home';
 import Posts from './Components/Posts';
+import PostItem from './Components/PostItem';
 import Projects from './Components/Projects';
 
 class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state=  {
+    this.state = {
       data: {}
     };
   }
 
-  getData() {
+  // happens immediately before the first render
+  componentWillMount() {
     $.ajax({
       url:'/data.json',
       dataType:'json',
@@ -34,22 +36,23 @@ class App extends Component {
     });
   }
 
-  componentDidMount() {
-    this.getData();
-  }
 
   render() {
-    console.log("data.json: ", this.state.data["posts"]);
+
+    const post_data = (this.state.data.hasOwnProperty("posts") ? this.state.data["posts"] : []) 
+    // console.log("post_data: ", post_data);
+
     return (
       <BrowserRouter>
           <Header />
 
         <Switch>
-            <Route exact path="/" component={Home}/>
-            <Route path="/about" component={About}/>
-            <Route path="/projects" component={Projects}/>
-            <Route path="/posts" component={() => 
-                <Posts data={this.state.data["posts"]} />}/>
+            <Route exact path="/" component={Home} />
+            <Route path="/about" component={About} />
+            <Route path="/projects" component={Projects} />
+            <Route exact path="/posts" component={() => 
+                <Posts data={post_data} />} />
+            // <Route path="/posts/:id" component={PostItem} />
 
         </Switch>
       </BrowserRouter>
