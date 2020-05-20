@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import '../Styles/Posts.css';
 import { Route, Link } from 'react-router-dom';
 
+import PostItem from './PostItem';
 
 // props: data: [{id:, title:, content}, {}]
 class Posts extends Component {
@@ -12,37 +13,33 @@ class Posts extends Component {
             data: []
         }
     }
+
     componentDidMount() {
         this.setState({
             data: this.props.data
         })
-        console.log("componenetDidMount props data: ", this.props.data)
     }
-    render() {
 
-        console.log("STATEDATA!: ", this.state.data);
-       
+    render() {  
+        // err handling 
         let posts = this.state.data.map((item, index) => {
-            return <h1>{item.Title}</h1>
+            const url_str = "/posts/" + item.id
+                return <div class="container left" key={index}>
+                <Link to={url_str}> 
+                    <h2>{item.title}</h2>    
+                </Link>
+                <p> {item.content} </p> 
+
+                </div>
         })
 
         return (
             <div>
+                <Route path="/posts/:id" component={() =>
+                    <PostItem id={this.props.match.params.id} />} />
+
                 <div class="timeline">
-                    //<div class="container left">
-                    //   <div class="content">
-                    //        <h2>2017</h2>
-                    //        <p><Link to='/posts/2017'>hello</Link></p>
-                    //    </div>
-                    //    <div class="content">
-                    //        <h2>2016</h2>
-                    //        <p>Lorem ipsum..</p>
-                    //    </div>
-                    //    <div class="content">
-                    //        <h2>2016</h2>
-                    //        <p>Lorem ipsum..</p>
-                    //    </div>
-                    //</div>
+                    {posts} 
                 </div>           
             </div>
         )
