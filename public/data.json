@@ -5,13 +5,13 @@
     "posts": [
         {
             "id": 0,
-            "title": "1st Posts",
-            "content": "This is a brief content"
+            "title": "Why vim is my favorite editor?",
+            "content": "In this article, I will talk about some interesting tricks and tips that keep developers away from mouse, and introduce some usefull vim plugins and my own vimrc..."
         },
         {
             "id":1,
-            "title": "2nd Posts",
-            "content": "Music sentimental analysis (ATT, GOT)"
+            "title": "Cute SWE Youtubers",
+            "content": "I will introduce some youtubers who currently work in software engineer industry or used to work in tech but get fired because of their youtube channel, also some thoughts after watching some of them"
         },
         {
             "id":2,

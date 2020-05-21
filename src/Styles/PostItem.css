@@ -1,3 +1,6 @@
+
+
+
 .postitem {
     margin-left: 360px;
     padding: 30px 80px 0px 40px;
@@ -29,3 +32,38 @@
     padding: 20px;
     color: white;
 }
+
+
+/* Side Bar*/
+.sidebar {
+  top: 73px;
+  margin: 0;
+  padding: 0;
+  width: 300px;
+  background-color: #f1f1f1;
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+/* Sidebar links */
+.sidebar a {
+  display: block;
+  color: black;
+  padding: 16px;
+  text-decoration: none;
+}
+
+/* Active/current link */
+.sidebar a:active {
+  /* background-color:  #555; */
+  color: green;
+}
+
+/* Links on mouse-over */
+/*
+.sidebar a:hover:not(.active) {
+  background-color: #555;
+  color: white;
+}
+*/

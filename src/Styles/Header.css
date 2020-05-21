@@ -4,7 +4,6 @@ ul {
     padding: 0;
 }
 
-
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #333;
@@ -18,7 +17,7 @@ ul {
     text-align: center;
     padding: 14px 16px;
     text-decoration: none;
-    font-size: 17px;
+    font-size: 25px;
 }
 
 /* Change the color of links on hover */
