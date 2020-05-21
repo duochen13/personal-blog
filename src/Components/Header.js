@@ -9,9 +9,9 @@ class Header extends Component {
             <div class="topnav">
                 <ul>
                     <li><Link to="/">Home</Link></li>
-                    <li><Link to="/about">about</Link></li>
-                    <li><a href="/projects">projects</a></li>
-                    <li><a href="/posts">posts</a></li>
+                    <li><Link to="/about">About</Link></li>
+                    <li><a href="/projects">Projects</a></li>
+                    <li><a href="/posts">Posts</a></li>
                 </ul>    
             </div>
         )   

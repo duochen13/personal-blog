@@ -1,16 +1,23 @@
 import React, { Component } from 'react';
 import '../Styles/PostItem.css';
-import PostItemSideBar from './PostItemSideBar';
+
 
 // props: section_names
-function PostItem0(props) {
+function PostItem0() {
     return(
+        <div>
+        <div class="sidebar" >
+            <a href="#why-vim">Why Vim</a>
+            <a href="#Space or Tab">Space or Tab</a>
+            <a href="#Search and Replace"> Search and Replace</a>
+        </div>
         <div class="postitem">
-            <h1 id={props.section_names[0]}>Why vim is my favorite editor</h1>
+            <h1 id="why-vim">Why vim is my favorite editor</h1>
             <hr />
             <p>In this article, I will talk about some interesting tricks and tips that keep developers away from mouse, and introduce some usefull vim plugins and my own vimrc file</p>
             <hr />
-            <h3 id={props.section_names[1]}>Space or Tab?</h3>
+
+            <h3 id="Space or Tab">Space or Tab?</h3>
             <p>If you want to insert space characters whenever the tab key is pressed</p>
             <div class="command">
                 <p>set expandtab</p>
@@ -25,16 +32,30 @@ function PostItem0(props) {
             </div>
             <hr />
 
-            <h3 id={props.section_names[2]}>Search keyword and repace it</h3>
+            <h3 id="Search and Replace">Search keyword and repace it</h3>
             <p> [ESC] + '/' + 'NAME', will highlight the first apperance of the word in the current file, if you want to keep search, simply type 'n'. 
             </p>
             <p>
                 Imagine you want to replace a specific variable with a new name, you can type [ESC] + ':%s/' + 'PREVIOUS NAME' + '/' + 'NEW_NAME'
             </p>
         </div>
+        </div>
     )
 }
 
+function PostItem1() {
+    return(
+        <div>
+            This is PoteItem 1
+        </div>
+    )    
+}
+
+function DefaultItem() {
+    return(
+        <div>This is defaultItem</div>
+    )
+}
 
 // props: id
 class PostItem extends Component {
@@ -43,7 +64,6 @@ class PostItem extends Component {
         this.state = {
             id: -1
         }
-        // console.log("props: ", this.props.match.params.id);
     }
 
     componentDidMount() {
@@ -51,14 +71,18 @@ class PostItem extends Component {
             id: this.props.match.params.id
         })
     }
+    
 
     render() {
-        const section_names_0 = ['Why Vim','Space or Tab', 'Search and Replace']
+        var component = <DefaultItem />
+        switch(this.state.id) {
+            case "0": component = <PostItem0 />; break;
+            case "1": component = <PostItem1 />; break;
+            default: component = <DefaultItem />; 
+        }
         return (
             <div>
-                <PostItemSideBar section_names={section_names_0} />
-                // id -> PostItem_id
-                <PostItem0 section_names={section_names_0}/>
+                {component}        
             </div>
         )
     }
